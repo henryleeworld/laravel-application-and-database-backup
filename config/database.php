@@ -50,7 +50,7 @@ return [
 		        'timeout' => 60 * 5, // 5 minute timeout
 		        'exclude_tables' => ['table1', 'table2'],
 		        // 'add_extra_option' => '--optionname=optionvalue', 
-		    ],  
+		    ],
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
