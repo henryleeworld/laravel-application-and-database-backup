@@ -46,7 +46,7 @@ return [
         'mysql' => [
             'dump' => [
 		        //'dump_binary_path' => '/path/to/the/binary', // only the path, so without `mysqldump` or `pg_dump`
-                'dump_binary_path' => 'D:\developer\php\7.1\mysql\bin', // only the path, so without `mysqldump` or `pg_dump`
+                'dump_binary_path' => 'G:\8.1\mysql\bin', // only the path, so without `mysqldump` or `pg_dump`
 		        'use_single_transaction',
 		        'timeout' => 60 * 5, // 5 minute timeout
 		        'exclude_tables' => ['table1', 'table2'],
@@ -82,7 +82,7 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
-            'schema' => 'public',
+            'search_path' => 'public',
             'sslmode' => 'prefer',
         ],
 
@@ -97,6 +97,8 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
+            // 'encrypt' => env('DB_ENCRYPT', 'yes'),
+            // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
     ],
@@ -137,7 +139,8 @@ return [
         'default' => [
             'url' => env('REDIS_URL'),
             'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
+            'username' => env('REDIS_USERNAME'),
+            'password' => env('REDIS_PASSWORD'),
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_DB', '0'),
         ],
@@ -145,7 +148,8 @@ return [
         'cache' => [
             'url' => env('REDIS_URL'),
             'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
+            'username' => env('REDIS_USERNAME'),
+            'password' => env('REDIS_PASSWORD'),
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_CACHE_DB', '1'),
         ],
