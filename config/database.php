@@ -37,17 +37,20 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+            'busy_timeout' => null,
+            'journal_mode' => null,
+            'synchronous' => null,
         ],
 
         'mysql' => [
+            'driver' => 'mysql',
             'dump' => [
 		        'dump_binary_path' => '/path/to/the/binary', // only the path, so without `mysqldump` or `pg_dump`
 		        'use_single_transaction',
 		        'timeout' => 60 * 5, // 5 minute timeout
-		        'exclude_tables' => ['table1', 'table2'],
-		        // 'add_extra_option' => '--optionname=optionvalue', 
+		        // 'exclude_tables' => ['table1', 'table2'],
+		        // 'add_extra_option' => '--optionname=optionvalue', // for example '--column-statistics=0'
 		    ],
-            'driver' => 'mysql',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
@@ -152,6 +155,7 @@ return [
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
             'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'persistent' => env('REDIS_PERSISTENT', false),
         ],
 
         'default' => [
